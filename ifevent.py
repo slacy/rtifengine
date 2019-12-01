@@ -46,17 +46,21 @@ async def main(stdscr):
     for actor in actors.values():
       await asyncio.create_task(actor.ev((ev_type, ev_data)))
 
-if __name__ == '__main__':
-  stdscr = curses.initscr()
-  curses.noecho()
-  curses.cbreak()
-  stdscr.keypad(True)
 
-  try:
-    asyncio.run(main(stdscr))
-  except:
-    print("App exception done")
-    curses.nocbreak()
-    stdscr.keypad(False)
-    curses.echo()
-    curses.endwin()
+if __name__ == '__main__':
+  asyncio.run(main(None))
+
+# if __name__ == '__main__':
+#   stdscr = curses.initscr()
+#   curses.noecho()
+#   curses.cbreak()
+#   stdscr.keypad(True)
+
+#   try:
+#     asyncio.run(main(stdscr))
+#   except:
+#     print("App exception done")
+#     curses.nocbreak()
+#     stdscr.keypad(False)
+#     curses.echo()
+#     curses.endwin()
